@@ -19,6 +19,9 @@ class Server {
     public void avvia() throws IOException {
         serverSocket = new ServerSocket(porta);
         System.out.println("Server avviato sulla porta " + porta);
+    }
+    
+    public void accetta() throws IOException {
         clientSocket = serverSocket.accept();
         System.out.println("Connessione accettata da: " + clientSocket.getInetAddress());
     }
@@ -33,11 +36,11 @@ class Server {
 
     public void chiudi() throws IOException {
         clientSocket.close();
-        serverSocket.close();
+        System.out.println("Connessione terminata");
     }
 
     public void termina() throws IOException {
-        chiudi();
+        serverSocket.close();
         System.out.println("Server terminato");
     }
 }

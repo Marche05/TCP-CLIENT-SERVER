@@ -21,9 +21,10 @@ class Client {
         output = new PrintWriter(socket.getOutputStream(), true);
     }
 
-    public void leggi() throws IOException {
+    public String leggi() throws IOException {
         String messaggioDalServer = input.readLine();
         System.out.println("Messaggio dal server: " + messaggioDalServer);
+        return messaggioDalServer;
     }
 
     public void scrivi(String messaggio) {
